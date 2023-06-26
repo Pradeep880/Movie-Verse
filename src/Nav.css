@@ -1,0 +1,70 @@
+.Nav{
+    display: flex;
+      position: fixed;
+    width: 100%;
+    height: 25px;
+    /* border: 2px solid red; */
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    transition: all 0.5s;
+    z-index: 1;
+    /* margin-left: 29px; */
+ }
+ .Nav_black{
+   background-color: rgba(19, 18, 18, 0.877);
+ 
+ }
+ .Nav img{
+  object-fit: contain;
+  max-height: 40px;
+  width:180px;
+  /* margin-left: 25px;  */
+ }
+ .Nav button ,.Sign_in{
+        position: relative;
+       right: 35px;
+        /* display: none; */
+        width: 80px;
+        color: white;
+        font-size: 17px;
+        background-color: rgba(240, 20, 20, 0.884);
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 2px;
+        padding: 7px;
+        text-align: center;
+        text-decoration: none;
+ 
+        }
+        /*For Front page  */
+ 
+ .Nav_front{
+     position: relative;
+     width: auto;
+       /* border: 2px solid red; */ 
+ }
+ .pass_Sign{
+        right: 19px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        width: 80px;
+        color: black;
+        border-radius: 2px;
+        padding: 7px;
+        text-align: center;
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: 600;
+ 
+ }
+ /* @media (max-width:700px){
+   .pass_Sign,
+   .Sign_in {
+     right:40px;
+   }
+ } */
+ 
+ 
