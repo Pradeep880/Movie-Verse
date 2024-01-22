@@ -1,18 +1,23 @@
 import React ,{useState,useEffect} from 'react'
 import Button from './Button'
-import requests from './requests'
-import axios from './axios'
+import requests from '../config/requests'
+import axios from '../config/axios'
 import './Banner.css'
 // const baseUrl="https://image.tmdb.org/t/p/original/"
 const Banner=(props)=> {
     const [movie, getMovie] = useState([]);
     useEffect(() => {
         async function fetchData() {
-            const res = await axios.get(requests.fetchOrignals)
+        
+              await axios.get(requests.fetchOrignals).then(res=>{
+               const r=Math.round(Math.random()*res.data.results.length-1);
+                getMovie(res.data.results[r]);
+            }).catch(err=>{
+                console.log(err);
+            })
             // console.log(res.data.results)
-            const r=Math.round(Math.random()*res.data.results.length-1);
             // console.log(res.data.results[r]);
-            getMovie(res.data.results[r]);
+          
         }
         fetchData();
     }, [])

@@ -1,48 +1,46 @@
 
 import React ,{useState,useEffect} from 'react'
-import axios from './axios'
+import axios from '../config/axios'
 import './Row.css'
-import Youtube from 'react-youtube'
+import ReactPlayer  from 'react-player'
 import movieTrailer from 'movie-trailer'
 const baseImage = "https://image.tmdb.org/t/p/w500/" 
 // const baseImage="https://image.tmdb.org/t/p/original/"
 
 function Row({title,fetchUrl,largeRow}) {
     const [Movies, setMovies] = useState([]);
-    const [TrailerUrl,SetTrailer]=useState('')
+    const [TrailerUrl,SetTrailer]=useState("")
     // console.log(Movies)
     // A snipet of code based on the specific condition/variable
     useEffect(() => {
         console.log("effect");
         async function fetchData() {
             const res = await axios.get(fetchUrl);
-            // console.table(res.data.results);
+            // console.log(res.data.results);
             setMovies(res.data.results)
             return res;
         }
         fetchData();
     }, [fetchUrl]);
-   
-    // console.log(Movies)
-    const opts = {
-        width: "100%",
-        height: "350px",
-        playerVars: {
-            autoplay:0,
-        }
-    }
+
     const handleTrailer = (item) => {
         if (TrailerUrl) {
             SetTrailer("")
         } else {
-            console.log(item.name)
-            movieTrailer(item?.name||"") 
-                .then((url) => {
-                    // https://www.youtube.com/watch?v=8U-zDpwm1Rk
-                    const urlParams = new URLSearchParams(new URL(url).search); //we can use this for searching last url id(8U-zDpwm1Rk)
-                                                                         //so we can search using .get("v") because after v our last url id present
-                    SetTrailer(urlParams.get('v'));
-                    console.log(url);
+           
+            let original="";
+            if(item.title){
+               original=item.title;
+            }else 
+               original=item.name;
+               console.log("title:"+original);
+            movieTrailer(original) 
+                .then((res) => {
+                    console.log("res:"+res);
+                    if(res)
+                    SetTrailer(res);
+                    else  
+                      SetTrailer("https://www.youtube.com/watch?v=QvbQtARquR8&ab_channel=Netflix") 
                 })
                 .catch(error => {
                 console.log(error)
@@ -65,7 +63,7 @@ function Row({title,fetchUrl,largeRow}) {
                    ></img>
             ))}
             </div>
-           {TrailerUrl? <Youtube videoId={TrailerUrl} opts={opts}></Youtube>:null }
+           {TrailerUrl? <ReactPlayer url={TrailerUrl} controls={true} /> :null }
         </div>
         
     )
