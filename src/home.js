@@ -4,10 +4,13 @@ import Nav from './model/Nav'
 import Banner from './model/Banner'
 import Row from './model/Row'
 import requests from './config/requests'
-function home () {
+import { useLocation } from 'react-router-dom'
+function Home () {
+  const {state}=useLocation();
+  console.log(state.data);
   return (
     <div className='Home'>
-        <Nav removeSign></Nav>
+        <Nav removeSign name={state.data}></Nav>
       <Banner></Banner>
             {/* Title */}
             {/* we want netflix original in large */}
@@ -23,4 +26,4 @@ function home () {
   )
 }
 
-export default home 
+export default Home 
