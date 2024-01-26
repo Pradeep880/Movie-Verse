@@ -22,20 +22,23 @@
   /* margin-left: 25px;  */
  }
  .Nav button ,.Sign_in{
-        position: relative;
-       right: 35px;
-        /* display: none; */
-        width: 80px;
-        color: white;
-        font-size: 17px;
-        background-color: rgba(240, 20, 20, 0.884);
-        cursor: pointer;
-        border: none;
-        outline: none;
-        border-radius: 2px;
-        padding: 7px;
-        text-align: center;
-        text-decoration: none;
+  position: relative;
+  right: 35px;
+  /* display: none; */
+  width: 116px;
+  color: white;
+  font-size: 26px;
+  background-color: rgba(240, 20, 20, 0.884);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  padding: 7px;
+  text-align: center;
+  text-decoration: none;
+}
+
+a {
  
         }
         /*For Front page  */
@@ -55,7 +58,7 @@
         border-radius: 2px;
         padding: 7px;
         text-align: center;
-        font-size: 20px;
+        font-size: 26px;
         text-decoration: none;
         font-weight: 600;
  

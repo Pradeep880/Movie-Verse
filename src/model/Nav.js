@@ -1,10 +1,8 @@
 import React, { useState,useEffect } from 'react'
 import './Nav.css'
 import {Link} from 'react-router-dom'
-import axios from 'axios';
-
 function Nav(props) {
-   
+    // console.log(props)
     const [show, handlescroll] = useState();
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -13,16 +11,6 @@ function Nav(props) {
             } else
                 handlescroll(false)
         })
-       async function fetchName(){
-
-          await axios.get("http://localhost:4000/api/v1/login")
-           .then(res=>{
-               console.log("DATA:"+res);
-            }).catch(err=>{
-                console.log("error"+err);
-            })
-        }
-        fetchName();
         // return () => {
         //     window.removeEventListener('scroll');
         // }
@@ -33,7 +21,7 @@ function Nav(props) {
             {/* {!props.removeSign ? <button >Sign in</button> : null} */}
            {props.removeSign ? <Link className={` ${props.Password?"pass_Sign":"Sign_in"}`} to={{
                 pathname:"/login",
-            }}>Logout</Link>:null}
+            }}>{props.name}</Link>:null}
         </nav> 
     )
 }

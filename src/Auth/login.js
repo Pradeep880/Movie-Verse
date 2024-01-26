@@ -19,8 +19,14 @@ const Login=()=> {
               axios.post("http://localhost:4000/api/v1/login",user)
               .then((res)=>{
                 setLogin(res.data.message);
-                console.log(res.data.user);
-                navigate('/');
+                console.log(res.data.user.name);
+                navigate('/',
+                  {
+                   state:{
+                        data:res.data.user.name
+                    }
+                    
+                });
               }).catch((err)=>{
                 //  console.log("Error:"+error);
                 setLogin("user not found ");
