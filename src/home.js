@@ -7,11 +7,15 @@ import requests from './config/requests'
 import { useLocation } from 'react-router-dom'
 function Home () {
   const {state}=useLocation();
-  console.log(state.data);
+  if(!state){
+    return (
+      <h1> If you are not login so you can not watch home page </h1>
+    )
+  }
   return (
     <div className='Home'>
-        <Nav removeSign name={state.data}></Nav>
-      <Banner></Banner>
+        <Nav name={state.data}></Nav>
+      <Banner ></Banner>
             {/* Title */}
             {/* we want netflix original in large */}
       <Row title="Top Trending" largeRow fetchUrl={ requests.fetchTrending}/>

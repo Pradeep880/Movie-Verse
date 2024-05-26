@@ -9,13 +9,14 @@ const Banner=(props)=> {
     useEffect(() => {
         async function fetchData() {
         
-              await axios.get(requests.fetchOrignals).then(res=>{
+              await axios.get(requests.fetchDocumentry).then(res=>{
                const r=Math.round(Math.random()*res.data.results.length-1);
                 getMovie(res.data.results[r]);
+                console.log(res.data.results)
             }).catch(err=>{
                 console.log(err);
             })
-            // console.log(res.data.results)
+            
             // console.log(res.data.results[r]);
           
         }
@@ -42,7 +43,7 @@ const Banner=(props)=> {
         <header className="Banner" style={style}>
             <div className="content">
                  {/* Title */}
-                 <h1 className="title">{ movie?.name || movie?.original_name }</h1>
+                 <h1 className="title">{ movie?.name || movie?.original_title }</h1>
             <div>
                 <Button clicked={Playvideo}>Play</Button>
                 <Button clicked={MyList}>My List</Button>

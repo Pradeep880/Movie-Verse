@@ -20,7 +20,7 @@ const Login=()=> {
               .then((res)=>{
                 setLogin(res.data.message);
                 console.log(res.data.user.name);
-                navigate('/',
+                navigate('/home',
                   {
                    state:{
                         data:res.data.user.name
