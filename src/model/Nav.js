@@ -1,9 +1,14 @@
 import React, { useState,useEffect } from 'react'
 import './Nav.css'
-import {Link} from 'react-router-dom'
 function Nav(props) {
     // console.log(props)
     const [show, handlescroll] = useState();
+    const [details,setDetails]=useState(false);
+    const changeDetails=()=>{
+        console.log(props.name)
+        console.log("this is details");
+          details?setDetails(false):setDetails(true);
+    }
     useEffect(() => {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 150) {
@@ -11,17 +16,25 @@ function Nav(props) {
             } else
                 handlescroll(false)
         })
-        // return () => {
-        //     window.removeEventListener('scroll');
-        // }
     }, []);
     return (
-        <nav className={`Nav ${show?"Nav_black":undefined} ${props.Front?"Nav_front":undefined}`}>
-            <img  src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg" alt="NelFlix logo" />
-            {/* {!props.removeSign ? <button >Sign in</button> : null} */}
-           {props.removeSign ? <Link className={` ${props.Password?"pass_Sign":"Sign_in"}`} to={{
-                pathname:"/login",
-            }}>{props.name}</Link>:null}
+        <nav className={`Nav ${show?"Nav_black":undefined} `}>
+            <img className="logo_in_Navbar_front" src="images/logo.png" alt="NetFlix logo" />
+            <button className="Sign_in" onClick={changeDetails}><img className="avatar_user_login"src="images/avatar_user_login.png" alt="User"/>
+            </button>
+             {details?
+             <div className='details_home'>
+                   <div className='details_child'> 
+                   <img className='user_avatar_show' src="images/Netflix_avatar_user.png" alt='user'/>
+                   <span className='user_name'>
+                   {props.name.charAt(0).toUpperCase() + props.name.slice(1)}
+                    </span>
+                    </div>
+                   <div className='details_child'> Manage Profiles </div>
+                   <div className='details_child'> Transfer Profiles </div>
+                   <div className='details_child'> Account</div>
+                   <div className='details_child'> Help Centre</div>
+             </div>:undefined}
         </nav> 
     )
 }

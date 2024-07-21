@@ -24,23 +24,15 @@ function Row({title,fetchUrl,largeRow}) {
     }, [fetchUrl]);
 
     const handleTrailer = (item) => {
-        if (TrailerUrl) {
+        if (TrailerUrl)
             SetTrailer("")
-        } else {
-           
+         else {
             let original="";
-            if(item.title){
-               original=item.title;
-            }else 
-               original=item.name;
-               console.log("title:"+original);
+               original=item.title?item.title:item.name;
             movieTrailer(original) 
                 .then((res) => {
-                    console.log("res:"+res);
-                    if(res)
-                    SetTrailer(res);
-                    else  
-                      SetTrailer("https://www.youtube.com/watch?v=QvbQtARquR8&ab_channel=Netflix") 
+                    // console.log("res:"+res);
+                    res?SetTrailer(res): SetTrailer("https://www.youtube.com/watch?v=QvbQtARquR8&ab_channel=Netflix")
                 })
                 .catch(error => {
                 console.log(error)
