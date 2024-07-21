@@ -118,3 +118,11 @@ exports.login=async (req,res)=>{
         })
     }
 }
+exports.logout=async (res,req)=>{
+   console.log(" we are in logout")
+   req.session.destroy();
+   return  res.status(200).json({
+      success:true,
+      message:"User Logged Out"
+   })
+}

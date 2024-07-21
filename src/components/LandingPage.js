@@ -15,7 +15,7 @@ export const LandingPage = () => {
           email:email,
           password:password
         };
-        // console.log(user);
+        console.log(user);
         if(name&&email&&password){
 
         if(Valid.isEmail(email)){
