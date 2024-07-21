@@ -21,7 +21,17 @@
   width:180px;
   /* margin-left: 25px;  */
  }
- .Nav button ,.Sign_in{
+ .logout{
+  /* position: absolute; */
+  cursor: pointer;
+    border: none;
+    border-radius: 39px;
+    background-color: #f88e18;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+ }
+ .Sign_in{
   position: relative;
     right: 35px;
     cursor: pointer;
@@ -83,8 +93,9 @@
  }
  .user_name{
   position: absolute;
-  top: 43px
+  top: 25px;
  }
+
  /* @media (max-width:700px){
    .pass_Sign,
    .Sign_in {
