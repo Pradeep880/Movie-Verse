@@ -33,7 +33,7 @@ function Nav(props) {
   return (
 
         <nav className={`Nav ${show?"Nav_black":undefined} `}>
-            <img className="logo_in_Navbar_front" src="images/logo.png" alt="NetFlix logo" />
+            <img className="logo_in_Navbar_front" src="images/movieverse1.jpg" alt="Movie verse logo" />
             <button className="Sign_in" onClick={changeDetails}><img className="avatar_user_login"src="images/avatar_user_login.png" alt="User"/>
             </button>
              {details?
