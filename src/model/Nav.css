@@ -16,10 +16,10 @@
  
  }
  .Nav .logo_in_Navbar_front{
-  object-fit: contain;
-  max-height: 40px;
-  width:180px;
-  /* margin-left: 25px;  */
+  object-fit: cover;
+  max-height: 50px;
+  width: 163px;
+  /* margin-left: 25px; */
  }
  .logout{
   /* position: absolute; */

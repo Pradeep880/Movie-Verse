@@ -46,7 +46,7 @@ export const LandingPage = () => {
         <div className="showcase-inner">
           <div className="logo-wrapper">
             <Link to="/signup">
-              <img src="images/logo.png" className="logo" alt="netflix-logo" />
+              <img src="images/movieverse1.jpg" className="logo" alt="movieverse-logo" />
             </Link>
           </div>
           <div className="header-right">

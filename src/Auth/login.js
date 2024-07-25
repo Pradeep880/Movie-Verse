@@ -45,9 +45,9 @@ const Login=()=> {
           <div className="logo-wrapper">
             <a href="/login">
               <img
-                src="images/logo.png"
-                className="logo logo-at-sigin"
-                alt="netflix-logo"
+                src="images/movieverse1.jpg"
+                className="logo_in_signin"
+                alt="movieverse-logo"
               />
             </a>
           </div>
