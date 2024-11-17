@@ -1,9 +1,5 @@
 .Row_Poster{
-    /* width:20%; */
-    /* height: auto; */
-    /* border:2px solid red; */
     display: flex;
-    /* flex-wrap: nowrap; */
     padding: 20px;
     overflow-x: scroll;
     }
@@ -11,25 +7,57 @@
     .Row_Poster::-webkit-scrollbar{
         display: none;
     }
-    .Row_img{
-        width: 100%;
-        max-height:150px;
-       object-fit: contain;
-       margin-right:12px;
-       transition: transform 550ms;
-       cursor: pointer;
+   .Row h2{
+     text-align: left;
+     margin-left: 15px;
+   }
+    .row-title{
+        flex: 0 0 250px;
+        text-align: center;
+        margin-right: 12px;
+        cursor: pointer;
+        color: #6e91e4;
     }
-    .Row_img:hover{
+    
+    .row-title:hover{
         transform: scale(1.08);
-        /* transform:translateX(12px) */
     }
     .Row_large{
-        max-height: 250px;
+        max-height: 265px;
             transition: transfrom 550ms;
-            padding:10px;
             cursor: pointer;
     }
-    .Row_large:hover{
-      transform: scale(1.2);
+
+    /* search components */
+    .search-results {
+        /* border: 2px solid red; */
+        position: relative;
+        top: 55px;
+        min-height: 340px;
+     
+    }
+    .search-no-result{
+        position: relative;
+        top: 55px;
+        text-align: center;
+        font-size: 30px;
+        height: 88px;
+        background-color: rgb(37, 36, 36);
+    }
+    .search-row{
+        flex: 0 0 130px;
+    }
+    .hide-button {
+        display: block;
+        padding: 3px 6px;
+        border-radius: 10px;
+        font-weight: 400;
+        color: #FFFFFF;
+        background-color: transparent;
+        position: relative;
+        left: 22px;
+        box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+        text-align: center;
+        font-size: 20px; 
     }
     

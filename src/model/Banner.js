@@ -3,9 +3,12 @@ import Button from './Button'
 import requests from '../config/requests'
 import axios from '../config/axios'
 import './Banner.css'
+import movieTrailer from 'movie-trailer';
+import ReactPlayer from 'react-player'
 // const baseUrl="https://image.tmdb.org/t/p/original/"
 const Banner=(props)=> {
     const [movie, getMovie] = useState([]);
+    const [TrailerUrl,SetTrailer]=useState(undefined);
     useEffect(() => {
         async function fetchData() {
         
@@ -24,7 +27,13 @@ const Banner=(props)=> {
     }, [])
     // console.log(movie)
     const Playvideo = () => {
-        console.log("play")
+        console.log(movie.original_title)
+        TrailerUrl===undefined?
+        movieTrailer(movie.original_title)
+        .then((res)=>{
+          res?SetTrailer(res): SetTrailer("https://www.youtube.com/watch?v=QvbQtARquR8&ab_channel=Netflix");
+        }):SetTrailer(undefined);
+        
     }
     const MyList = () => {
         console.log("MYList")
@@ -39,22 +48,29 @@ const Banner=(props)=> {
     // console.log(style)
    //  movie?.name || movie?.original_name    it is checking name is present or not(? is using like a if else)
     return (
-
+  <>
         <header className="Banner" style={style}>
+            <div className='banner_head'>
             <div className="content">
-                 {/* Title */}
                  <h1 className="title">{ movie?.name || movie?.original_title }</h1>
             <div>
-                <Button clicked={Playvideo}>Play</Button>
+                <Button clicked={Playvideo}>{TrailerUrl===undefined?'Play':'Pause'}</Button>
                 <Button clicked={MyList}>My List</Button>
             </div>
             <div className="description">
                 {/* Description */}
                 {movie.overview}
+                {/* {console.log(movie)} */}
+            </div>
+            </div>
+            <div className='trailer'>
+            {TrailerUrl?<ReactPlayer url={TrailerUrl} controls={true}></ReactPlayer>:undefined}
             </div>
             </div>
             <div className="fadecontent"></div>
         </header>
+       
+        </>
     )
 }
 
